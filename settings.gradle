@@ -1,0 +1,3 @@
+include ':GamificationSdk'
+include ':app'
+rootProject.name = "GamificationDemo"
