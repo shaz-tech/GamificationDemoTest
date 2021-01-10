@@ -36,4 +36,14 @@ class Gamification private constructor(private val builder: Gamification.Builder
         resultLauncher.launch(intent)
         callback.onOpen()
     }
+
+    fun show(activity: Activity, inputData: GameInputData, callback: GameCallback) {
+        callback.onPreOpen()
+        val intent = Intent(activity, GamificationPage::class.java)
+        intent.putExtra("data", inputData)
+        activity.startActivity(intent)
+        callback.onOpen()
+    }
+
+
 }
