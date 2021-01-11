@@ -7,9 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class Gamification private constructor(private val builder: Gamification.Builder) {
-    companion object{
-        const val SHOW_REQUEST_CODE = 10000;
-    }
 
     class Builder {
         private var title: String? = null
@@ -45,7 +42,7 @@ class Gamification private constructor(private val builder: Gamification.Builder
         callback.onPreOpen()
         val intent = Intent(activity, GamificationPage::class.java)
         intent.putExtra("data", inputData)
-        activity.startActivityForResult(intent, SHOW_REQUEST_CODE)
+        activity.startActivity(intent)
         callback.onOpen()
     }
 

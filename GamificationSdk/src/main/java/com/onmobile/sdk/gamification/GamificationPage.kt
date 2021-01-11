@@ -82,6 +82,7 @@ internal class GamificationPage : AppCompatActivity() {
                                     Row {
                                         Button(onClick = {
                                             resultData = text
+                                            data.callback?.onSetData(text)
                                             /*lifecycleScope.launch {
                                                 snackbarHostState.value.showSnackbar(
                                                     message = "Hey look a snackbar",
@@ -95,6 +96,7 @@ internal class GamificationPage : AppCompatActivity() {
                                         Spacer(modifier = Modifier.padding(start = 8.dp))
                                         Button(onClick = {
                                             text = ""
+                                            data.callback?.onClearData()
                                         }) {
                                             Text("Clear")
                                         }
