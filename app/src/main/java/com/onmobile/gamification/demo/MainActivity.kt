@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.txt).text = "onClose, Data: ${resultData?.data}"
                 }
 
-            })
+            }, null)
         }
     }
 

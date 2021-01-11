@@ -5,10 +5,9 @@ import java.io.Serializable
 class GameInputData : Serializable {
     var title: String? = null
     var message: String? = null
-    var callback: Callback? = null
 }
 
-interface Callback : Serializable {
+interface Callback {
     fun onSetData(value: String?)
     fun onClearData()
 }

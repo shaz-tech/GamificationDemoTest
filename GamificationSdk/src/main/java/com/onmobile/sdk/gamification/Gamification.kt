@@ -19,8 +19,14 @@ class Gamification private constructor(private val builder: Gamification.Builder
         }
     }
 
-    fun show(activity: AppCompatActivity, inputData: GameInputData, callback: GameCallback) {
+    fun show(
+        activity: AppCompatActivity,
+        inputData: GameInputData,
+        callback: GameCallback,
+        dataCallback: Callback?
+    ) {
         callback.onPreOpen()
+        GamificationPage.dataCallback = dataCallback
         val resultLauncher =
             activity.registerForActivityResult(StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
@@ -38,8 +44,14 @@ class Gamification private constructor(private val builder: Gamification.Builder
         callback.onOpen()
     }
 
-    fun show(activity: Activity, inputData: GameInputData, callback: GameCallback) {
+    fun show(
+        activity: Activity,
+        inputData: GameInputData,
+        callback: GameCallback,
+        dataCallback: Callback?
+    ) {
         callback.onPreOpen()
+        GamificationPage.dataCallback = dataCallback
         val intent = Intent(activity, GamificationPage::class.java)
         intent.putExtra("data", inputData)
         activity.startActivity(intent)

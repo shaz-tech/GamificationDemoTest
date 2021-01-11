@@ -21,6 +21,13 @@ import androidx.compose.ui.unit.dp
 internal class GamificationPage : AppCompatActivity() {
     private var resultData: String? = null
 
+    companion object{
+        var dataCallback: Callback? = null
+        set(value){
+            field = value
+        }
+    }
+
     @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +89,7 @@ internal class GamificationPage : AppCompatActivity() {
                                     Row {
                                         Button(onClick = {
                                             resultData = text
-                                            data.callback?.onSetData(text)
+                                            dataCallback?.onSetData(text)
                                             /*lifecycleScope.launch {
                                                 snackbarHostState.value.showSnackbar(
                                                     message = "Hey look a snackbar",
@@ -96,7 +103,7 @@ internal class GamificationPage : AppCompatActivity() {
                                         Spacer(modifier = Modifier.padding(start = 8.dp))
                                         Button(onClick = {
                                             text = ""
-                                            data.callback?.onClearData()
+                                            dataCallback?.onSetData(text)
                                         }) {
                                             Text("Clear")
                                         }
@@ -152,6 +159,7 @@ internal class GamificationPage : AppCompatActivity() {
         } ?: kotlin.run {
             setResult(Activity.RESULT_CANCELED)
         }
+        dataCallback = null
         super.onBackPressed()
     }
 }
