@@ -58,5 +58,20 @@ class Gamification private constructor(private val builder: Gamification.Builder
         callback.onOpen()
     }
 
+    fun showTranslucent(
+        activity: Activity,
+        inputData: GameInputData,
+        callback: GameCallback,
+        dataCallback: Callback?
+    ) {
+        callback.onPreOpen()
+        GamificationPage.dataCallback = dataCallback
+        //val intent = Intent(activity, GamificationTranslucentPage::class.java)
+        val intent = Intent(activity, GamificationTranslucentDialog::class.java)
+        intent.putExtra("data", inputData)
+        activity.startActivity(intent)
+        callback.onOpen()
+    }
+
 
 }

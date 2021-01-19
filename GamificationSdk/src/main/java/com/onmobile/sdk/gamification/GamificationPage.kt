@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.unit.dp
+import androidx.ui.tooling.preview.Preview
 
 internal class GamificationPage : AppCompatActivity() {
     private var resultData: String? = null
@@ -39,7 +40,11 @@ internal class GamificationPage : AppCompatActivity() {
     @ExperimentalMaterialApi
     @Composable
     private fun MyApp() {
-        val data = intent.getSerializableExtra("data") as GameInputData
+
+        val data = if(intent.hasExtra("data"))
+            intent.getSerializableExtra("data") as GameInputData
+        else
+            GameInputData()
 
         val scaffoldState = rememberScaffoldState()
         /*val snackbarVisibleState = remember { mutableStateOf(false) }
@@ -145,11 +150,12 @@ internal class GamificationPage : AppCompatActivity() {
         ).show()
     }
 
-    /*@Preview("Screen preview")
+    @OptIn(ExperimentalMaterialApi::class)
+    @Preview("Screen preview")
     @Composable
     fun DefaultPreview() {
         MyApp()
-    }*/
+    }
 
     override fun onBackPressed() {
         resultData?.let {

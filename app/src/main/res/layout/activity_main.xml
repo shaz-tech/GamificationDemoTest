@@ -20,11 +20,22 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Open"
-        app:layout_goneMarginTop="16dp"
+        android:text="Open Sdk"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txt" />
+        app:layout_constraintTop_toTopOf="@id/txt"
+        app:layout_goneMarginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_scratch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scratch Card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn"
+        app:layout_goneMarginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,25 @@ class MainActivity : AppCompatActivity() {
 
             }, null)
         }
+        findViewById<Button>(R.id.btn_scratch).setOnClickListener {
+            Gamification.Builder().build().showTranslucent(this, data, object : GameCallback {
+                override fun onPreOpen() {
+                    print("onPreOpen")
+                    findViewById<TextView>(R.id.txt).text = "onPreOpen"
+                }
+
+                override fun onOpen() {
+                    print("onOpen")
+                }
+
+                override fun onClose(resultData: GameResultData?) {
+                    print("onClose, Data: ${resultData?.data}")
+                    data.message = resultData?.data ?: ""
+                    findViewById<TextView>(R.id.txt).text = "onClose, Data: ${resultData?.data}"
+                }
+
+            }, null)
+        }
     }
 
 }
