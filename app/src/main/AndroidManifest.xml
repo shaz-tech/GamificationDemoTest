@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.onmobile.sdk.gamification.GamificationPage" />
+        <activity
+            android:name="com.onmobile.sdk.gamification.GamificationPage"
+            android:theme="@style/Theme_Compact" />
         <activity
             android:name="com.onmobile.sdk.gamification.GamificationTranslucentPage"
             android:theme="@style/Theme_Translucent" />
